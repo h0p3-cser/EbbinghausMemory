@@ -142,3 +142,24 @@ MIT License
 ---
 
 *Made with ❤️ on macOS*
+
+---
+
+## 自动刷新 Provisioning Profile
+
+开发签名证书每 7 天过期。项目内置了自动刷新脚本，每天凌晨自动重建并部署。
+
+### 首次配置
+
+```bash
+# 1. 加载 LaunchAgent（只需一次）
+launchctl load ~/Library/LaunchAgents/com.local.EbbinghausMemory.refresh.plist
+
+# 2. 手动测试一次
+bash refresh_profile.sh
+
+# 3. 查看日志
+tail ~/Library/Logs/com.local.EbbinghausMemory.refresh.log
+```
+
+之后每天凌晨 3:00 自动执行，无需人工干预。
