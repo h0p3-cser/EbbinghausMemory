@@ -33,3 +33,5 @@ fastlane/test_output
 # Code Injection
 iOSInjectionProject/
 *.dmg
+*.md
+!README.md
